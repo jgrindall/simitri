@@ -40,7 +40,7 @@
 @implementation MyFilesScreenController
 
 - (void)viewDidLoad{
-    [super viewDidLoad];
+	[super viewDidLoad];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(startFileClicked) name:SYMM_NOTIF_START_NEW_FILE object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(openFileClicked) name:SYMM_NOTIF_OPEN_FILE object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(delFileClicked) name:SYMM_NOTIF_DELETE_FILE object:nil];
@@ -251,8 +251,8 @@
 - (void) layoutFiles{
 	self.filesContainer.translatesAutoresizingMaskIntoConstraints = NO;
 	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.filesContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0];
-	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.filesContainer attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
-	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.filesContainer attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
+	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.filesContainer attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeft multiplier:1 constant:0];
+	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.filesContainer attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.filesContainer attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
 	[self.view addConstraints:@[c1, c2, c3, c4]];
 }
