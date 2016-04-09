@@ -30,9 +30,7 @@
 @interface MyFilesScreenController ()
 
 @property UIView* filesContainer;
-//@property UIView* menuContainer;
 @property UIViewController<FileManagerDelegate>* fileControllerDelegate;
-//@property FilesMenuController* menuController;
 @property UILabel* message;
 @property UIPopoverController* pop;
 @property NSArray* files;
@@ -51,25 +49,10 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prevYes:) name:SYMM_NOTIF_PREV_YES object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(prevNo) name:SYMM_NOTIF_PREV_NO object:nil];
 	[self addFiles];
-	//[self addMenu];
 	[self addMessage];
 	[self layoutFiles];
-	//[self layoutMenu];
 	[self layoutMessage];
-	//[self addChildInto:self.menuContainer withController:self.menuController];
 	[self addChildInto:self.filesContainer withController:self.fileControllerDelegate];
-	[self updateFileList];
-}
-
-- (void) layoutMenu{
-	/*
-	self.menuContainer.translatesAutoresizingMaskIntoConstraints = NO;
-	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.menuContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0];
-	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.menuContainer attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
-	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.menuContainer attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_FILES_MENU_HEIGHT];
-	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.menuContainer attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_FILES_MENU_HEIGHT];
-	[self.view addConstraints:@[c1, c2, c3, c4]];
-	 */
 }
 
 - (void) prevYes:(NSNotification*) notification{
@@ -181,12 +164,6 @@
 	}
 }
 
-- (void) addMenu{
-	//self.menuController = [[FilesMenuController alloc] init];
-	//self.menuContainer = [[UIView alloc] init];
-	//[self.view addSubview:self.menuContainer];
-}
-
 - (void) addFiles{
 	CGSize iconSize = CGSizeMake(LAYOUT_SMALLER_ICON_SIZE, LAYOUT_SMALLER_ICON_SIZE);
 	NSArray* leftImgs = @[[ImageUtils iconWithName:@"layout 3.png" andSize:iconSize], [ImageUtils disabledIconWithName:@"layout 3.png" andSize:iconSize]];
@@ -246,7 +223,6 @@
 
 - (void) viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
-	[self updateFileList];
 }
 
 - (void)didReceiveMemoryWarning{
@@ -290,12 +266,8 @@
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:SYMM_NOTIF_PREV_YES object:nil];
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:SYMM_NOTIF_PREV_NO object:nil];
 	[self removeChildFrom:self.filesContainer withController:self.fileControllerDelegate];
-	//[self removeChildFrom:self.menuContainer withController:self.menuController];
-	//[self.menuContainer removeFromSuperview];
 	[self.filesContainer removeFromSuperview];
 	self.fileControllerDelegate = nil;
-	//self.menuController = nil;
-	//self.menuContainer = nil;
 	self.filesContainer = nil;
 	[self hidePop];
 	[self.message removeFromSuperview];
