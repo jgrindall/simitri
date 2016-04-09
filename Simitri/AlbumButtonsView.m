@@ -74,39 +74,35 @@
 }
 
 - (void) layoutBg{
-	self.bg.translatesAutoresizingMaskIntoConstraints = NO;
 	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.bg attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:0];
 	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.bg attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
 	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.bg attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.bg attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-	[self addConstraints:@[c1, c2, c3, c4]];
+	[DisplayUtils applyConstraints:self withChild: self.bg withConstraints:@[c1, c2, c3, c4]];
 }
 
 - (void) layoutDel{
-	self.delButton.translatesAutoresizingMaskIntoConstraints = NO;
 	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.delButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTop multiplier:1 constant:4];
 	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.delButton attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
 	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.delButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_LONG_BUTTON_WIDTH];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.delButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_DEFAULT_BUTTON_HEIGHT];
-	[self addConstraints:@[c1, c2, c3, c4]];
+	[DisplayUtils applyConstraints:self withChild: self.delButton withConstraints:@[c1, c2, c3, c4]];
 }
 
 - (void) layoutOpen{
-	self.openButton.translatesAutoresizingMaskIntoConstraints = NO;
 	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.openButton attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
 	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.openButton attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
 	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.openButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_LONG_BUTTON_WIDTH];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.openButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_DEFAULT_BUTTON_HEIGHT];
-	[self addConstraints:@[c1, c2, c3, c4]];
+	[DisplayUtils applyConstraints:self withChild: self.openButton withConstraints:@[c1, c2, c3, c4]];
 }
 
 - (void) layoutNew{
-	self.startNewButton.translatesAutoresizingMaskIntoConstraints = NO;
 	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.startNewButton attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:-4];
 	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.startNewButton attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
 	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.startNewButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_LONG_BUTTON_WIDTH];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.startNewButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_DEFAULT_BUTTON_HEIGHT];
-	[self addConstraints:@[c1, c2, c3, c4]];
+	[DisplayUtils applyConstraints:self withChild: self.startNewButton withConstraints:@[c1, c2, c3, c4]];
 }
 
 - (void) dealloc{

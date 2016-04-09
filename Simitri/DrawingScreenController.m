@@ -85,11 +85,11 @@
 	self.infoShown = NO;
 	[self setPageTitle];
 	[self addAll];
-	[self layoutAll];
 	[self addChildInto: self.tabContainer withController:self.tabController];
 	[self addChildInto: self.drawingContainer withController:self.drawingViewController];
 	[self addChildInto: self.toolsContainer withController:self.toolsViewController];
 	[self addChildInto: self.infoContainer withController:self.infoViewController];
+	[self layoutAll];
 }
 
 - (void) addAll{
@@ -182,10 +182,10 @@
 
 - (void) layoutInfo{
 	self.infoContainer.translatesAutoresizingMaskIntoConstraints = NO;
-	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.infoContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.infoContainer attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_INFO_WIDTH];
-	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.infoContainer attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
-	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.infoContainer attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_INFO_HEIGHT];
+	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.infoContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual			toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.infoContainer attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual			toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_INFO_WIDTH];
+	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.infoContainer attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual		toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
+	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.infoContainer attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual		toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_INFO_HEIGHT];
 	[self.view addConstraints:@[c1, c2, c3, c4]];
 }
 
@@ -241,14 +241,15 @@
 }
 
 - (void) addTools{
-	self.toolsContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+	self.toolsContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 2*LAYOUT_COLOR_VIEW_HEIGHT)];
 	self.toolsContainer.clipsToBounds = YES;
 	self.toolsViewController = [[ToolsBarViewController alloc] init];
 	[self.view addSubview:self.toolsContainer];
 }
 
 - (void) addInfo{
-	self.infoContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+	int y = self.view.frame.size.height + LAYOUT_INFO_HEIGHT/2;
+	self.infoContainer = [[UIView alloc] initWithFrame:CGRectMake(0, y, LAYOUT_INFO_WIDTH, LAYOUT_INFO_HEIGHT)];
 	self.infoContainer.clipsToBounds = YES;
 	self.infoViewController = [[InfoViewController alloc] init];
 	[self.view addSubview:self.infoContainer];
@@ -259,7 +260,6 @@
 	self.drawingContainer.frame = CGRectIntegral(self.view.frame);
 	self.drawingContainer.backgroundColor = [UIColor clearColor];
 	self.drawingViewController = [[DrawingViewController alloc] init];
-	[self layoutDrawing];
 	[self.view addSubview:self.drawingContainer];
 }
 
@@ -421,6 +421,7 @@
 	[self.toolsViewController setColor:obj.color];
 	[self.toolsViewController setBgColor:obj.bgColor];
 	[self.toolsViewController setWidth:obj.width];
+	[self hideInfo];
 }
 
 - (void) dealloc{

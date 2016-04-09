@@ -42,10 +42,13 @@
 	[self.view.layer removeAllAnimations];
 }
 
+- (void) viewWillAppear:(BOOL)animated{
+	[self layoutAll];
+}
+
 - (void) setupAll{
 	self.view.backgroundColor = [UIColor whiteColor];
 	[self addAll];
-	[self layoutAll];
 	[self addChildInto: self.colorContainer withController:self.colorViewController];
 	[self addChildInto: self.widthContainer withController:self.widthViewController];
 	[self addChildInto: self.bgContainer withController:self.bgViewController];
@@ -160,7 +163,8 @@
 }
 
 - (void) addWidth{
-	self.widthContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+	self.widthContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+	self.widthContainer.backgroundColor = [UIColor redColor];
 	self.widthContainer.clipsToBounds = YES;
 	self.widthViewController = [[WidthViewController alloc] initWithWidth:10];
 	[self.view addSubview:self.widthContainer];

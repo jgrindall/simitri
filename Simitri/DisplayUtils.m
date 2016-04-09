@@ -61,4 +61,9 @@
 	return frame;
 }
 
++ (void) applyConstraints:(UIView*) container withChild:(UIView*) child withConstraints:(NSArray*)cons{
+	child.translatesAutoresizingMaskIntoConstraints = NO;
+	[container addConstraints:cons];
+}
+
 @end

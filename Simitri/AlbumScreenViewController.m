@@ -137,31 +137,28 @@
 
 - (void) layoutButtons{
 	int len = LAYOUT_LONG_BUTTON_WIDTH + 5;
-	self.buttons.translatesAutoresizingMaskIntoConstraints = NO;
 	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.buttons attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:50];
 	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.buttons attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant: 5];
 	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.buttons attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:len];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.buttons attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:3*LAYOUT_DEFAULT_BUTTON_HEIGHT + 10];
-	[self.view addConstraints:@[c1, c2, c3, c4]];
+	[DisplayUtils applyConstraints:self.view withChild: self.buttons withConstraints:@[c1, c2, c3, c4]];
 }
 
 - (void) layoutConfirm{
 	int len = LAYOUT_LONG_BUTTON_WIDTH + 5;
-	self.confirm.translatesAutoresizingMaskIntoConstraints = NO;
 	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.confirm attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:-50];
 	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.confirm attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant: len];
 	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.confirm attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:len];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.confirm attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:3*LAYOUT_DEFAULT_BUTTON_HEIGHT + 20];
-	[self.view addConstraints:@[c1, c2, c3, c4]];
+	[DisplayUtils applyConstraints:self.view withChild: self.confirm withConstraints:@[c1, c2, c3, c4]];
 }
 
 - (void) layoutPageView{
-	self.albumContainer.translatesAutoresizingMaskIntoConstraints = NO;
 	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.albumContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0];
 	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.albumContainer attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
 	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.albumContainer attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.albumContainer attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-	[self.view addConstraints:@[c1, c2, c3, c4]];
+	[DisplayUtils applyConstraints:self.view withChild: self.albumContainer withConstraints:@[c1, c2, c3, c4]];
 }
 
 - (void) loadFiles:(NSArray *)files{

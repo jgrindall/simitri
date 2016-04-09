@@ -39,12 +39,12 @@
 
 -  (void) addMarkers{
 	[self addRot6];
-	//[self addRot4];
-	//[self addRot3];
-	//[self addRot2];
-	//[self addTrans];
-	//[self addRef];
-	//[self addGlideRef];
+	[self addRot4];
+	[self addRot3];
+	[self addRot2];
+	[self addTrans];
+	[self addRef];
+	[self addGlideRef];
 }
 
 - (void) addClose{

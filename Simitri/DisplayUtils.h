@@ -15,5 +15,5 @@
 + (void) bubbleActionFrom:(UIResponder*) start toProtocol:(Protocol*) protocol withSelector:(NSString*) selector withObject:(id) object;
 + (BOOL) createContextWithSize:(CGSize)size;
 + (CGRect) fitFrame:(CGRect) frame inView:(UIView*) view;
-
++ (void) applyConstraints:(UIView*) container withChild:(UIView*) child withConstraints:(NSArray*)cons;
 @end

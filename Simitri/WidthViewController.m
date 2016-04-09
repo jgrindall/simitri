@@ -39,9 +39,9 @@
 	[self addStepper];
 	[self addLabel];
 	[self addIndicator];
-	//[self layoutStepper];
-	//[self layoutIndicator];
-	//[self layoutLabel];
+	[self layoutStepper];
+	[self layoutIndicator];
+	[self layoutLabel];
 }
 
 - (void) addLabel{

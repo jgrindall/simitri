@@ -70,7 +70,7 @@
 }
 
 - (void) addInfo{
-	self.infoContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+	self.infoContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, LAYOUT_INFO_WIDTH, 100)];
 	self.infoContainer.clipsToBounds = YES;
 	self.infoViewController = [[InfoViewController alloc] init];
 	[self.view addSubview:self.infoContainer];
