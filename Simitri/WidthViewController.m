@@ -39,9 +39,9 @@
 	[self addStepper];
 	[self addLabel];
 	[self addIndicator];
-	[self layoutStepper];
-	[self layoutIndicator];
-	[self layoutLabel];
+	//[self layoutStepper];
+	//[self layoutIndicator];
+	//[self layoutLabel];
 }
 
 - (void) addLabel{
@@ -89,14 +89,16 @@
 
 - (void) layoutStepper{
 	self.stepper.translatesAutoresizingMaskIntoConstraints = NO;
-	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.stepper attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.widthLabel attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.stepper attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:30];
 	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.stepper attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
-	[self.view addConstraints:@[c1, c2]];
+	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.stepper attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
+	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.stepper attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:40];
+	[self.view addConstraints:@[c1, c2, c3, c4]];
 }
 
 - (void) layoutIndicator{
 	self.widthIndicator.translatesAutoresizingMaskIntoConstraints = NO;
-	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.widthIndicator attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.stepper attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.widthIndicator attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:50];
 	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.widthIndicator attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
 	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.widthIndicator attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.widthIndicator attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];

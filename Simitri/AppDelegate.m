@@ -32,6 +32,7 @@
 	application.statusBarHidden = YES;
 	[self initApp];
 	[self applyStyles];
+	UIView
 	return YES;
 }
 

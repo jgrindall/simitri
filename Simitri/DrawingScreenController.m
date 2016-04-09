@@ -173,10 +173,10 @@
 
 - (void) layoutTools{
 	self.toolsContainer.translatesAutoresizingMaskIntoConstraints = NO;
-	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.toolsContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:-2*LAYOUT_COLOR_VIEW_HEIGHT];
-	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.toolsContainer attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
-	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.toolsContainer attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
-	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.toolsContainer attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:2*LAYOUT_COLOR_VIEW_HEIGHT];
+	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.toolsContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual			toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:-2*LAYOUT_COLOR_VIEW_HEIGHT];
+	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.toolsContainer attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual		toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
+	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.toolsContainer attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual		toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
+	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.toolsContainer attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual		toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:2*LAYOUT_COLOR_VIEW_HEIGHT];
 	[self.view addConstraints:@[c1, c2, c3, c4]];
 }
 
@@ -191,11 +191,10 @@
 
 - (void) layoutDrawing{
 	self.drawingContainer.translatesAutoresizingMaskIntoConstraints = NO;
-	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-	//NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
-	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:(NSLayoutAttributeLeft) multiplier:1 constant:0];
-	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0];
-	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:-LAYOUT_TAB_HEIGHT];
+	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeTop		relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0];
+	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeLeading	relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
+	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeTrailing	relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
+	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeBottom		relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:-LAYOUT_TAB_HEIGHT];
 	[self.view addConstraints:@[c1, c2, c3, c4]];
 }
 
@@ -256,12 +255,12 @@
 }
 
 - (void) addDrawing{
-	self.drawingContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+	self.drawingContainer = [[UIView alloc] initWithFrame:CGRectIntegral(self.view.frame)];
 	self.drawingContainer.frame = CGRectIntegral(self.view.frame);
 	self.drawingContainer.backgroundColor = [UIColor clearColor];
 	self.drawingViewController = [[DrawingViewController alloc] init];
-	[self.view addSubview:self.drawingContainer];
 	[self layoutDrawing];
+	[self.view addSubview:self.drawingContainer];
 }
 
 - (void) performSave{

@@ -128,6 +128,8 @@
 	label.font = [Appearance fontOfSize:s];
 	label.textColor = [Colors symmGrayTextColor];
 	label.backgroundColor = [UIColor clearColor];
+	[label setContentHuggingPriority: UILayoutPriorityFittingSizeLevel forAxis: UILayoutConstraintAxisHorizontal];
+	[label setContentHuggingPriority: UILayoutPriorityFittingSizeLevel forAxis: UILayoutConstraintAxisVertical];
 	return label;
 }
 

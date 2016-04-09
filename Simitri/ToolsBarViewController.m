@@ -125,10 +125,16 @@
 	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.fgLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.colorContainer attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
 	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.fgLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:5];
 	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.fgLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_LABEL_WIDTH];
+	NSLayoutConstraint* c32 = [NSLayoutConstraint constraintWithItem:self.fgLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:20];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.bgLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.bgContainer attribute:NSLayoutAttributeCenterY multiplier:1 constant:0];
 	NSLayoutConstraint* c5 = [NSLayoutConstraint constraintWithItem:self.bgLabel attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:5];
 	NSLayoutConstraint* c6 = [NSLayoutConstraint constraintWithItem:self.bgLabel attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_LABEL_WIDTH];
-	[self.view addConstraints:@[c1, c2, c3, c4, c5, c6]];
+	NSLayoutConstraint* c62 = [NSLayoutConstraint constraintWithItem:self.bgLabel attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:20];
+	[self.fgLabel setContentHuggingPriority: UILayoutPriorityFittingSizeLevel forAxis: UILayoutConstraintAxisVertical];
+	[self.bgLabel setContentHuggingPriority: UILayoutPriorityFittingSizeLevel forAxis: UILayoutConstraintAxisVertical];
+	[self.fgLabel setContentHuggingPriority: UILayoutPriorityFittingSizeLevel forAxis: UILayoutConstraintAxisHorizontal];
+	[self.bgLabel setContentHuggingPriority: UILayoutPriorityFittingSizeLevel forAxis: UILayoutConstraintAxisHorizontal];
+	[self.view addConstraints:@[c1, c2, c3, c32, c4, c5, c6, c62]];
 }
 
 - (void) addColor{

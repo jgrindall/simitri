@@ -39,12 +39,12 @@
 
 -  (void) addMarkers{
 	[self addRot6];
-	[self addRot4];
-	[self addRot3];
-	[self addRot2];
-	[self addTrans];
-	[self addRef];
-	[self addGlideRef];
+	//[self addRot4];
+	//[self addRot3];
+	//[self addRot2];
+	//[self addTrans];
+	//[self addRef];
+	//[self addGlideRef];
 }
 
 - (void) addClose{
@@ -64,6 +64,7 @@
 
 - (void) layoutMarkers{
 	UIView* v;
+	NSMutableArray* cons = [NSMutableArray array];
 	NSLayoutConstraint* c1;
 	NSLayoutConstraint* c2;
 	NSLayoutConstraint* c3;
@@ -71,12 +72,16 @@
 	for(int i = 0; i< self.rows.count; i++){
 		v = (UIView*)self.rows[i];
 		v.translatesAutoresizingMaskIntoConstraints = NO;
-		c1 = [NSLayoutConstraint constraintWithItem:v attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:10 + LAYOUT_DEFAULT_MAKER_HEIGHT * i];
-		c2 = [NSLayoutConstraint constraintWithItem:v attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
-		c3 = [NSLayoutConstraint constraintWithItem:v attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
-		c4 = [NSLayoutConstraint constraintWithItem:v attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_DEFAULT_MAKER_HEIGHT];
-		//[self.view addConstraints:@[c1, c2, c3, c4]];
+		c1 = [NSLayoutConstraint constraintWithItem:v attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual		toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:20 + LAYOUT_DEFAULT_MAKER_HEIGHT * i];
+		c2 = [NSLayoutConstraint constraintWithItem:v attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual		toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:40];
+		c3 = [NSLayoutConstraint constraintWithItem:v attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual	toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
+		c4 = [NSLayoutConstraint constraintWithItem:v attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual	toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
+		[cons addObject:c1];
+		[cons addObject:c2];
+		[cons addObject:c3];
+		[cons addObject:c4];
 	}
+	[self.view addConstraints:cons];
 }
 
 - (void)didReceiveMemoryWarning{

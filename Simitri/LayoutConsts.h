@@ -48,5 +48,6 @@ extern int const LAYOUT_WELCOME_HEIGHT;
 extern int const LAYOUT_EXAMPLE_WIDTH;
 extern int const LAYOUT_EXAMPLE_HEIGHT;
 extern int const LAYOUT_DEFAULT_MAKER_HEIGHT;
+extern int const LAYOUT_DEFAULT_MAKER_WIDTH;
 
 @end

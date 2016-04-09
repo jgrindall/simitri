@@ -23,14 +23,19 @@
 - (id) initWithMarker:(AMathMarker*) m withTransforms:(NSArray*) transforms withLabel:(NSString*)label{
 	self = [super init];
 	if(self){
-		self.img = [[MarkerImage alloc] initWithMarker:m withTransforms:transforms];
-		self.label = [Appearance labelWithFontSize:SYMM_FONT_SIZE_SMALL];
-		self.label.text = label;
-		[self addSubview:self.label];
-		self.backgroundColor = [UIColor whiteColor];
-		[self addSubview:self.img];
-		[self layoutImg];
-		[self layoutLabel];
+		//self.img = [[MarkerImage alloc] initWithMarker:m withTransforms:transforms];
+		//self.label = [Appearance labelWithFontSize:SYMM_FONT_SIZE_SMALL];
+		//self.label.text = label;
+		//[self addSubview:self.label];
+		if(arc4random_uniform(2) < 1){
+			self.backgroundColor = [UIColor redColor];
+		}
+		else{
+			self.backgroundColor = [UIColor greenColor];
+		}
+		//[self addSubview:self.img];
+		//[self layoutImg];
+		//[self layoutLabel];
 	}
 	return self;
 }
@@ -41,7 +46,7 @@
 	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.label attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
 	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.label attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeading multiplier:1 constant:LAYOUT_MATH_MARKER_SIZE + 5];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.label attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-	//[self addConstraints:@[c1, c2, c3, c4]];
+	[self addConstraints:@[c1, c2, c3, c4]];
 }
 
 - (void) layoutImg{
@@ -50,7 +55,7 @@
 	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.img attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_MATH_MARKER_SIZE];
 	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.img attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.img attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_MATH_MARKER_SIZE];
-	//[self addConstraints:@[c1, c2, c3, c4]];
+	[self addConstraints:@[c1, c2, c3, c4]];
 }
 
 
