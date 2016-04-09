@@ -36,7 +36,7 @@
 
 - (void) addButtons{
 	self.yesButton = [Appearance flatButtonWithLabel:@"Yes please" withIcon:@"floppy disk.png" withTheme:FlatButtonThemePositive withSize:CGSizeMake(LAYOUT_DEFAULT_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT)];
-	self.noButton = [Appearance flatButtonWithLabel:@"No thanks" withIcon:@"multiply 1.png" withTheme:FlatButtonThemeDanger withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT)];
+	self.noButton = [Appearance flatButtonWithLabel:@"No thanks" withIcon:@"multiply 2.png" withTheme:FlatButtonThemeDanger withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT)];
 	[self addSubview:self.yesButton];
 	[self addSubview:self.noButton];
 	[self.yesButton addTarget:self action:@selector(yesClicked) forControlEvents:UIControlEventTouchUpInside];

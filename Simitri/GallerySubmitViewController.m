@@ -33,13 +33,17 @@
 - (void) setupAll{
 	self.title = @"Submit to the gallery";
 	[self addAll];
-	[self layoutAll];
 	[self addChildInto: self.tabContainer withController:self.tabController];
 	[self addChildInto: self.submitContainer withController:self.submitPageController];
 }
 
 - (void)backClicked{
 	[self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+	[super viewWillAppear:animated];
+	[self layoutAll];
 }
 
 - (void) viewDidAppear:(BOOL)animated{
@@ -120,13 +124,13 @@
 }
 
 - (void) addTab{
-	self.tabContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+	self.tabContainer = [[UIView alloc] initWithFrame:CGRectIntegral(self.view.frame)];
 	self.tabController = [[SubmitMenuController alloc] init];
 	[self.view addSubview:self.tabContainer];
 }
 
 - (void) addSubmit{
-	self.submitContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+	self.submitContainer = [[UIView alloc] initWithFrame:CGRectIntegral(self.view.frame)];
 	self.submitContainer.frame = CGRectIntegral(self.view.frame);
 	self.submitContainer.backgroundColor = [UIColor clearColor];
 	self.submitPageController = [[SubmitPageController alloc] init];

@@ -216,6 +216,9 @@
 		524E84D81CB936A10056BF46 /* settingsdown.png in Resources */ = {isa = PBXBuildFile; fileRef = 524E84D71CB936A10056BF46 /* settingsdown.png */; };
 		524E84DA1CB937020056BF46 /* multiply 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 524E84D91CB937020056BF46 /* multiply 2.png */; };
 		524E84DC1CB983BD0056BF46 /* picture9.png in Resources */ = {isa = PBXBuildFile; fileRef = 524E84DB1CB983BD0056BF46 /* picture9.png */; };
+		524E84DE1CB98C690056BF46 /* eye44.png in Resources */ = {isa = PBXBuildFile; fileRef = 524E84DD1CB98C690056BF46 /* eye44.png */; };
+		524E84E01CB992740056BF46 /* world.png in Resources */ = {isa = PBXBuildFile; fileRef = 524E84DF1CB992740056BF46 /* world.png */; };
+		524E84E21CB9ABE00056BF46 /* backtop.png in Resources */ = {isa = PBXBuildFile; fileRef = 524E84E11CB9ABE00056BF46 /* backtop.png */; };
 		526DCFF01CB2F7340064355A /* click.wav in Resources */ = {isa = PBXBuildFile; fileRef = 526DCFEF1CB2F7340064355A /* click.wav */; };
 		526DCFF31CB2F75F0064355A /* error.wav in Resources */ = {isa = PBXBuildFile; fileRef = 526DCFF11CB2F75F0064355A /* error.wav */; };
 		526DCFF41CB2F75F0064355A /* success.wav in Resources */ = {isa = PBXBuildFile; fileRef = 526DCFF21CB2F75F0064355A /* success.wav */; };
@@ -616,6 +619,9 @@
 		524E84D71CB936A10056BF46 /* settingsdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settingsdown.png; sourceTree = "<group>"; };
 		524E84D91CB937020056BF46 /* multiply 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "multiply 2.png"; sourceTree = "<group>"; };
 		524E84DB1CB983BD0056BF46 /* picture9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = picture9.png; sourceTree = "<group>"; };
+		524E84DD1CB98C690056BF46 /* eye44.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eye44.png; sourceTree = "<group>"; };
+		524E84DF1CB992740056BF46 /* world.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = world.png; sourceTree = "<group>"; };
+		524E84E11CB9ABE00056BF46 /* backtop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backtop.png; sourceTree = "<group>"; };
 		526DCFEF1CB2F7340064355A /* click.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = click.wav; sourceTree = "<group>"; };
 		526DCFF11CB2F75F0064355A /* error.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = error.wav; sourceTree = "<group>"; };
 		526DCFF21CB2F75F0064355A /* success.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = success.wav; sourceTree = "<group>"; };
@@ -1313,6 +1319,9 @@
 		526DCFEE1CB2F7340064355A /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				524E84E11CB9ABE00056BF46 /* backtop.png */,
+				524E84DF1CB992740056BF46 /* world.png */,
+				524E84DD1CB98C690056BF46 /* eye44.png */,
 				524E84DB1CB983BD0056BF46 /* picture9.png */,
 				524E84D91CB937020056BF46 /* multiply 2.png */,
 				524E84D71CB936A10056BF46 /* settingsdown.png */,
@@ -1460,6 +1469,7 @@
 				524E84BD1CB92E990056BF46 /* p3m1_3.jpg in Resources */,
 				524E84BE1CB92E990056BF46 /* p3m1.jpg in Resources */,
 				524E84C61CB92E990056BF46 /* p6_2.jpg in Resources */,
+				524E84DE1CB98C690056BF46 /* eye44.png in Resources */,
 				524E84741CB921B50056BF46 /* bulb.png in Resources */,
 				524E84D81CB936A10056BF46 /* settingsdown.png in Resources */,
 				524E84C11CB92E990056BF46 /* p4g.jpg in Resources */,
@@ -1474,6 +1484,7 @@
 				526DCFF41CB2F75F0064355A /* success.wav in Resources */,
 				524E847C1CB927990056BF46 /* dustbin.png in Resources */,
 				524E84B21CB92E990056BF46 /* cm_1.jpg in Resources */,
+				524E84E01CB992740056BF46 /* world.png in Resources */,
 				524E84C91CB92E990056BF46 /* p6m.jpg in Resources */,
 				526DCFF81CB303220064355A /* layout 6.png in Resources */,
 				524E847E1CB927990056BF46 /* right 3.png in Resources */,
@@ -1485,6 +1496,7 @@
 				526DCFF01CB2F7340064355A /* click.wav in Resources */,
 				524E847D1CB927990056BF46 /* plus.png in Resources */,
 				524E84C81CB92E990056BF46 /* p6m_4.jpg in Resources */,
+				524E84E21CB9ABE00056BF46 /* backtop.png in Resources */,
 				524E84CC1CB92E990056BF46 /* p31m.jpg in Resources */,
 				524E84B61CB92E990056BF46 /* cmm.jpg in Resources */,
 				524E848C1CB92D990056BF46 /* back.png in Resources */,

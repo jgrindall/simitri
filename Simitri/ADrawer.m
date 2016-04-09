@@ -19,10 +19,6 @@
 
 @interface ADrawer ()
 
-/**
-http://dgd.service.tu-berlin.de/wordpress/vismathws12/files/2012/11/Wallpaper-groups.jpg
-**/
-
 @property NSInteger drawerNum;
 @property NSInteger animIndex;
 @property CGPoint animCentre;

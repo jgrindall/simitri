@@ -24,7 +24,7 @@
 @implementation SubmitMenuController
 
 - (void) addItems{
-	self.backButton = [self addButtonWithLabel:@"Back to the drawing" clickSelector:@selector(backClicked) withTrailingSpace:YES withLeadingSpace:YES withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT) withIcon:@"arrow 24_2.png" withTheme:FlatButtonThemeDefault];
+	self.backButton = [self addButtonWithLabel:@"Back to the drawing" clickSelector:@selector(backClicked) withTrailingSpace:YES withLeadingSpace:YES withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT) withIcon:@"back.png" withTheme:FlatButtonThemeDefault];
 	self.yesButton = [self addButtonWithLabel:@"Yes, submit!" clickSelector:@selector(yesClicked) withTrailingSpace:YES withLeadingSpace:YES withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT) withIcon:@"right 3.png" withTheme:FlatButtonThemePositive];
 	self.yesButton.enabled = NO;
 }

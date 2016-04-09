@@ -136,7 +136,7 @@
 
 - (void) addBack{
 	[self.navigationItem setHidesBackButton:YES animated:NO];
-	UIImage* buttonImage = [ImageUtils loadImageNamed:@"back.png"];
+	UIImage* buttonImage = [ImageUtils loadImageNamed:@"backtop.png"];
 	self.backButton = [UIButton buttonWithType:UIButtonTypeSystem];
 	self.backButton.tintColor = [Colors getColorForTheme:FlatButtonThemeDefault];
 	UIView* backContainer = [[UIView alloc] initWithFrame:CGRectMake(0,0,100,40)];

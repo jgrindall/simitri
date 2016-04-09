@@ -37,7 +37,7 @@
 }
 
 - (void) addButton{
-	self.refreshButton = [Appearance flatButtonWithLabel:@"Load more" withIcon:@"refresh.png" withTheme:FlatButtonThemePositive withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT)];
+	self.refreshButton = [Appearance flatButtonWithLabel:@"Load more" withIcon:@"arrow 20" withTheme:FlatButtonThemePositive withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT)];
 	[self.refreshButton addTarget:self action:@selector(refresh) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:self.refreshButton];
 }

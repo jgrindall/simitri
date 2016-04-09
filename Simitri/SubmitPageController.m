@@ -39,14 +39,17 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-	
 	[self addContainers];
 	[self addImg];
 	[self addLabels];
 	[self addText];
 	[self addSwitch];
 	[self addMap];
-	
+	self.view.backgroundColor = [Colors symmGrayBgColor];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDidRotate:) name:SYMM_NOTIF_DID_ROTATE object:nil];
+}
+
+- (void)layoutAll{
 	[self layoutContainers];
 	[self layoutImage];
 	[self layoutLabels];
@@ -54,9 +57,6 @@
 	[self layoutPicker];
 	[self layoutSwitch];
 	[self layoutMap];
-	[self layoutMenu];
-	self.view.backgroundColor = [Colors symmGrayBgColor];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onDidRotate:) name:SYMM_NOTIF_DID_ROTATE object:nil];
 }
 
 - (void)onDidRotate:(NSNotification*)notification{
@@ -74,16 +74,16 @@
 
 - (void) layoutMap{
 	self.mapView.translatesAutoresizingMaskIntoConstraints = NO;
-	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.mapView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.bottomContainer attribute:NSLayoutAttributeTop multiplier:1 constant:0];
-	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.mapView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.bottomContainer attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.mapView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.bottomContainer attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
-	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.mapView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.picker attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
+	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.mapView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual			toItem:self.bottomContainer attribute:NSLayoutAttributeTop multiplier:1 constant:0];
+	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.mapView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual		toItem:self.bottomContainer attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.mapView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual	toItem:self.bottomContainer attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
+	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.mapView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual		toItem:self.picker attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
 	[self.view addConstraints:@[c1, c2, c3, c4]];
 }
 
 - (void) addContainers{
-	self.topContainer = [[UIView alloc]init];
-	self.bottomContainer = [[UIView alloc]init];
+	self.topContainer = [[UIView alloc] initWithFrame:CGRectIntegral(self.view.frame)];
+	self.bottomContainer = [[UIView alloc] initWithFrame:CGRectIntegral(self.view.frame)];
 	self.menu = [[UIView alloc]init];
 	[self.view addSubview:self.topContainer];
 	[self.view addSubview:self.bottomContainer];
@@ -91,7 +91,7 @@
 }
 
 - (void) addMap{
-	self.mapView = [[MapView alloc]init];
+	self.mapView = [[MapView alloc] init];
 	[self.bottomContainer addSubview:self.mapView];
 	[self.mapView mark:CGPointZero withLabel:[GeoService getAllCountryNames][0]];
 }
@@ -253,15 +253,6 @@
 	[[NSNotificationCenter defaultCenter] postNotificationName:SYMM_NOTIF_ACCEPT_TERMS object:nil userInfo:dic];
 }
 
-- (void) layoutMenu{
-	self.menu.translatesAutoresizingMaskIntoConstraints = NO;
-	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.menu attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:10];
-	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.menu attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10];
-	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.menu attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:-10];
-	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.menu attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:35];
-	[self.view addConstraints:@[c1, c2, c3, c4]];
-}
-
 - (void) layoutSwitch{
 	self.mySwitch.translatesAutoresizingMaskIntoConstraints = NO;
 	self.switchLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -308,6 +299,7 @@
 	UIImage* largeImg = [FileLoader sharedInstance].tempThumbs[2];
 	self.imgView.image = largeImg;
 	[self.mySwitch setOn:NO animated:YES];
+	[self layoutAll];
 }
 
 - (void) dealloc{
