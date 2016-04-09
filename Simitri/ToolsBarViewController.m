@@ -132,7 +132,7 @@
 }
 
 - (void) addColor{
-	self.colorContainer = [[UIView alloc] init];
+	self.colorContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	self.colorContainer.clipsToBounds = YES;
 	UICollectionViewFlowLayout *aFlowLayout = [[UICollectionViewFlowLayout alloc] init];
 	[aFlowLayout setItemSize:CGSizeMake(LAYOUT_COLOR_CELL_SIZE, LAYOUT_COLOR_CELL_SIZE)];
@@ -143,7 +143,7 @@
 }
 
 - (void) addBg{
-	self.bgContainer = [[UIView alloc] init];
+	self.bgContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	self.bgContainer.clipsToBounds = YES;
 	UICollectionViewFlowLayout *aFlowLayout = [[UICollectionViewFlowLayout alloc] init];
 	[aFlowLayout setItemSize:CGSizeMake(LAYOUT_COLOR_CELL_SIZE, LAYOUT_COLOR_CELL_SIZE)];
@@ -154,7 +154,7 @@
 }
 
 - (void) addWidth{
-	self.widthContainer = [[UIView alloc] init];
+	self.widthContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	self.widthContainer.clipsToBounds = YES;
 	self.widthViewController = [[WidthViewController alloc] initWithWidth:10];
 	[self.view addSubview:self.widthContainer];

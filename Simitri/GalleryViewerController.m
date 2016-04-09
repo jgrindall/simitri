@@ -65,7 +65,7 @@
 
 - (void) addPages{
 	self.pagesController = [[GalleryViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil withDataProvider:[[GalleryDataProvider alloc] initWithPageClass:[GalleryPageViewController class]]];
-	self.pagesContainer = [[UIView alloc] init];
+	self.pagesContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	[self.view addSubview:self.pagesContainer];
 }
 

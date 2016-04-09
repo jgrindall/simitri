@@ -42,7 +42,7 @@
 
 - (void) addToolbar{
 	self.toolbarController = [[ToolbarController alloc] initWithButtons:self.buttons andIcons:self.icons];
-	self.toolbarContainer = [[UIView alloc] init];
+	self.toolbarContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	[self.view addSubview: self.toolbarContainer];
 }
 

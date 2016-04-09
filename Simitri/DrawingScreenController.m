@@ -229,7 +229,7 @@
 }
 
 - (void) addTab{
-	self.tabContainer = [[UIView alloc] init];
+	self.tabContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	self.tabController = [[DrawingMenuViewController alloc] init];
 	[self.view addSubview:self.tabContainer];
 }
@@ -242,21 +242,21 @@
 }
 
 - (void) addTools{
-	self.toolsContainer = [[UIView alloc] init];
+	self.toolsContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	self.toolsContainer.clipsToBounds = YES;
 	self.toolsViewController = [[ToolsBarViewController alloc] init];
 	[self.view addSubview:self.toolsContainer];
 }
 
 - (void) addInfo{
-	self.infoContainer = [[UIView alloc] init];
+	self.infoContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	self.infoContainer.clipsToBounds = YES;
 	self.infoViewController = [[InfoViewController alloc] init];
 	[self.view addSubview:self.infoContainer];
 }
 
 - (void) addDrawing{
-	self.drawingContainer = [[UIView alloc] init];
+	self.drawingContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	self.drawingContainer.frame = CGRectIntegral(self.view.frame);
 	self.drawingContainer.backgroundColor = [UIColor clearColor];
 	self.drawingViewController = [[DrawingViewController alloc] init];

@@ -70,7 +70,7 @@
 }
 
 - (void) addInfo{
-	self.infoContainer = [[UIView alloc] init];
+	self.infoContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	self.infoContainer.clipsToBounds = YES;
 	self.infoViewController = [[InfoViewController alloc] init];
 	[self.view addSubview:self.infoContainer];
@@ -208,14 +208,14 @@
 
 - (void) addMenu{
 	self.menuController = [[TemplateMenuController alloc] init];
-	self.menuContainer = [[UIView alloc] init];
+	self.menuContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 100, 100)];
 	[self.view addSubview: self.menuContainer];
 }
 
 - (void) addTemplates{
 	TemplateDataProvider* dataProvider = [[TemplateDataProvider alloc] initWithPageClass:[TemplatePageViewController class]];
 	self.templateController = [[TemplateFileViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil withDataProvider:dataProvider];
-	self.templatesContainer = [[UIView alloc] init];
+	self.templatesContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	[self.view addSubview: self.templatesContainer];
 }
 

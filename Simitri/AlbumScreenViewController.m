@@ -79,18 +79,18 @@
 }
 
 - (void) addPageView{
-	self.albumContainer = [[UIView alloc] init];
+	self.albumContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	[self.view addSubview:self.albumContainer];
 	self.albumController = [[AlbumViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil withDataProvider:[[AlbumDataProvider alloc] initWithPageClass:[AlbumPageViewController class]]];
 }
 
 - (void) addButtons{
-	self.buttons = [[AlbumButtonsView alloc] init];
+	self.buttons = [[AlbumButtonsView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	[self.view addSubview:self.buttons];
 }
 
 - (void) addConfirm{
-	self.confirm = [[AlbumConfirmView alloc] init];
+	self.confirm = [[AlbumConfirmView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	[self.view addSubview:self.confirm];
 }
 

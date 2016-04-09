@@ -31,7 +31,7 @@
 }
 
 - (void) addContainer{
-	self.container = [[UIView alloc] init];
+	self.container = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	[self.view addSubview:self.container];
 }
 

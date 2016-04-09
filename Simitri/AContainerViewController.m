@@ -15,13 +15,20 @@
 @implementation AContainerViewController
 
 - (void) addChildInto:(UIView*) container withController:(UIViewController*) controller{
+	CGSize s = CGSizeMake(1, 1);
 	[container addSubview:controller.view];
 	[self addChildViewController:controller];
-	controller.view.frame = container.frame;
 	[controller viewWillAppear:NO];
 	[controller willMoveToParentViewController:self];
 	[controller didMoveToParentViewController:self];
 	[controller viewDidAppear:NO];
+	s = container.frame.size;
+	if(s.width > 0 && s.height > 0){
+		controller.view.frame = CGRectMake(0, 0, s.width, s.height);
+	}
+	else{
+		NSLog(@"zero size");
+	}
 }
 
 - (void)didReceiveMemoryWarning{

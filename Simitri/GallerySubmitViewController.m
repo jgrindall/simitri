@@ -120,13 +120,13 @@
 }
 
 - (void) addTab{
-	self.tabContainer = [[UIView alloc] init];
+	self.tabContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	self.tabController = [[SubmitMenuController alloc] init];
 	[self.view addSubview:self.tabContainer];
 }
 
 - (void) addSubmit{
-	self.submitContainer = [[UIView alloc] init];
+	self.submitContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	self.submitContainer.frame = CGRectIntegral(self.view.frame);
 	self.submitContainer.backgroundColor = [UIColor clearColor];
 	self.submitPageController = [[SubmitPageController alloc] init];

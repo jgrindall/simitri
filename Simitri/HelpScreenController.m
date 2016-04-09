@@ -71,7 +71,7 @@
 }
 
 -  (void) addHelp{
-	self.container = [[UIView alloc] init];
+	self.container = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	self.help = [[HelpViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil withDataProvider:[[HelpDataProvider alloc] initWithPageClass:[HelpPageViewController class]]];
 	[self.view addSubview:self.container];
 }

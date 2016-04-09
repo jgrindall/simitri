@@ -125,7 +125,7 @@
 }
 
 - (void) addHelpAnim{
-	self.helpContainer = [[UIView alloc] init];
+	self.helpContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	[self.view addSubview:self.helpContainer];
 	self.helpController = [[HelpAnimViewController alloc] init];
 }
