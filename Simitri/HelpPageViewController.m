@@ -35,8 +35,12 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
 	[self addLabel];
-	[self layoutLabel];
 	[self addContainer];
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+	[super viewWillAppear:animated];
+	[self layoutLabel];
 	[self layoutContainer];
 }
 

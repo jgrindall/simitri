@@ -86,9 +86,6 @@
 	[self addTemplates];
 	[self addMenu];
 	[self addInfo];
-	[self layoutMenu];
-	[self layoutTemplates];
-	[self layoutInfo];
 	[self addChildInto:self.menuContainer withController:self.menuController];
 	[self addChildInto:self.templatesContainer withController:self.templateController];
 	[self addChildInto: self.infoContainer withController:self.infoViewController];
@@ -118,6 +115,13 @@
 
 - (void) clickMathPoint:(id) pVal{
 	
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+	[super viewWillAppear:animated];
+	[self layoutMenu];
+	[self layoutTemplates];
+	[self layoutInfo];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -163,7 +167,6 @@
 }
 
 - (void) didReceiveMemoryWarning{
-	[super didReceiveMemoryWarning];
 	[super didReceiveMemoryWarning];
 	if(self.view && !self.view.window){
 		[self cleanUpView];
@@ -215,7 +218,7 @@
 - (void) addTemplates{
 	TemplateDataProvider* dataProvider = [[TemplateDataProvider alloc] initWithPageClass:[TemplatePageViewController class]];
 	self.templateController = [[TemplateFileViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil withDataProvider:dataProvider];
-	self.templatesContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+	self.templatesContainer = [[UIView alloc] initWithFrame:CGRectIntegral(self.view.frame)];
 	[self.view addSubview: self.templatesContainer];
 }
 

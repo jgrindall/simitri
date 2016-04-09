@@ -44,12 +44,13 @@
 	[self addText];
 	[self addHelpAnim];
 	[self addInfoButton];
-	[self.view setBackgroundColor:[UIColor purpleColor]];
 	[self addChildInto:self.helpContainer withController:self.helpController];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showMathChange:) name:SYMM_NOTIF_SHOW_TPL_INFO object:nil];
+	[self getConstraints];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
+	[super viewWillAppear:animated];
 	[self getConstraints];
 	[self layoutAnim];
 	[self layoutLabel];
@@ -129,10 +130,11 @@
 }
 
 - (void) addHelpAnim{
-	NSLog(@"%f %f %f %f", self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
-	self.helpContainer = [[UIView alloc] initWithFrame:CGRectIntegral(self.view.frame)];
-	[self.view addSubview:self.helpContainer];
-	self.helpController = [[HelpAnimViewController alloc] init];
+	if(!self.helpContainer){
+		self.helpContainer = [[UIView alloc] initWithFrame:CGRectIntegral(self.view.frame)];
+		[self.view addSubview:self.helpContainer];
+		self.helpController = [[HelpAnimViewController alloc] init];
+	}
 }
 
 -  (void) clickInfo{
