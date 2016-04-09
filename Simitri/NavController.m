@@ -41,10 +41,8 @@ typedef enum{
 	self = [super initWithRootViewController:rootViewController];
 	if(self){
 		self.spinnerShown = SpinnerStatusNone;
-		self.transDelegate = [[TransitionDelegate alloc] init];
 		self.navDelegate = [[NavDelegate alloc] init];
 		self.delegate = self.navDelegate;
-		self.transitioningDelegate = self.transDelegate;
 		self.commands = [NSMutableArray array];
 	}
 	return self;
