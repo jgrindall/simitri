@@ -149,17 +149,17 @@ void patternCallback (void* info, CGContextRef context) {
 - (void) memoryWarning{
 	return;
 	//NSLog(@"mw %d", self.drawingObject.lines.count);
-	if(self.drawingObject.lines.count >= 1){
-		self.drawingObject.baseImage = self.postImages[self.postImages.count - 1];
+	//if(self.drawingObject.lines.count >= 1){
+		//self.drawingObject.baseImage = self.postImages[self.postImages.count - 1];
 		//NSLog(@"self.drawingObject.lines.count %d", self.drawingObject.lines.count);
-		while(self.drawingObject.lines.count >= 2){
+		//while(self.drawingObject.lines.count >= 2){
 			//NSLog(@"-  self.drawingObject.lines.count %d", self.drawingObject.lines.count);
 			//NSLog(@"remove index 0");
-			[self removeLineAtIndex:0];
-			self.currentTop--;
-		}
-		[self updateButtons];
-	}
+			//[self removeLineAtIndex:0];
+			//self.currentTop--;
+		//}
+		//[self updateButtons];
+	//}
 }
 
 - (void) checkOverflow{
