@@ -44,12 +44,16 @@
 	[self addText];
 	[self addHelpAnim];
 	[self addInfoButton];
+	[self.view setBackgroundColor:[UIColor purpleColor]];
+	[self addChildInto:self.helpContainer withController:self.helpController];
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showMathChange:) name:SYMM_NOTIF_SHOW_TPL_INFO object:nil];
+}
+
+- (void) viewWillAppear:(BOOL)animated{
+	[self getConstraints];
 	[self layoutAnim];
 	[self layoutLabel];
 	[self layoutInfoButton];
-	[self getConstraints];
-	[self addChildInto:self.helpContainer withController:self.helpController];
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showMathChange:) name:SYMM_NOTIF_SHOW_TPL_INFO object:nil];
 }
 
 - (void) showMathChange:(NSNotification*) notification{
@@ -61,15 +65,15 @@
 
 - (void) getConstraints{
 	self.dataText.translatesAutoresizingMaskIntoConstraints = NO;
-	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.dataLabelName attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10];
-	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:-10];
-	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:80];
+	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual			toItem:self.dataLabelName attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual		toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10];
+	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual		toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:-10];
+	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual			toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:80];
 	
-	NSLayoutConstraint* c5 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.dataLabelName attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-	NSLayoutConstraint* c6 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10];
-	NSLayoutConstraint* c7 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:-10];
-	NSLayoutConstraint* c8 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:1];
+	NSLayoutConstraint* c5 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual			toItem:self.dataLabelName attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+	NSLayoutConstraint* c6 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual		toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10];
+	NSLayoutConstraint* c7 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual		toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:-10];
+	NSLayoutConstraint* c8 = [NSLayoutConstraint constraintWithItem:self.dataText attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual			toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:1];
 	
 	self.showConstraints = @[c1, c2, c3, c4];
 	self.hideConstraints = @[c5, c6, c7, c8];
@@ -77,28 +81,28 @@
 
 - (void) layoutInfoButton{
 	self.infoButton.translatesAutoresizingMaskIntoConstraints = NO;
-	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.infoButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:7];
-	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.infoButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:30];
-	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.infoButton attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:-3];
-	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.infoButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:30];
+	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.infoButton attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual			toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:7];
+	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.infoButton attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual		toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:30];
+	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.infoButton attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual		toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:-3];
+	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.infoButton attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual		toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:30];
 	[self.view addConstraints:@[c1, c2, c3, c4]];
 }
 
 - (void) layoutLabel{
 	self.dataLabelName.translatesAutoresizingMaskIntoConstraints = NO;
-	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.dataLabelName attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.dataLabelName attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10];
-	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.dataLabelName attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:-10];
-	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.dataLabelName attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:40];
+	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.dataLabelName attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual		toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.dataLabelName attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual	toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:10];
+	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.dataLabelName attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual	toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:-10];
+	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.dataLabelName attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual	toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:40];
 	[self.view addConstraints:@[c1, c2, c3, c4]];
 }
 
 - (void) layoutAnim{
 	self.helpContainer.translatesAutoresizingMaskIntoConstraints = NO;
-	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.helpContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.dataText attribute:NSLayoutAttributeBottom multiplier:1 constant:5];
-	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.helpContainer attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
-	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.helpContainer attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
-	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.helpContainer attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.helpContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual		toItem:self.dataText attribute:NSLayoutAttributeBottom multiplier:1 constant:5];
+	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.helpContainer attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual	toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
+	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.helpContainer attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual	toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
+	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.helpContainer attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual	toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
 	[self.view addConstraints:@[c1, c2, c3, c4]];
 }
 
@@ -125,7 +129,8 @@
 }
 
 - (void) addHelpAnim{
-	self.helpContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
+	NSLog(@"%f %f %f %f", self.view.frame.origin.x, self.view.frame.origin.y, self.view.frame.size.width, self.view.frame.size.height);
+	self.helpContainer = [[UIView alloc] initWithFrame:CGRectIntegral(self.view.frame)];
 	[self.view addSubview:self.helpContainer];
 	self.helpController = [[HelpAnimViewController alloc] init];
 }
