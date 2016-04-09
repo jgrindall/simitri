@@ -111,8 +111,8 @@
 }
 
 - (void) dealloc{
-	[self.yesButton addTarget:self action:@selector(yesClicked) forControlEvents:UIControlEventTouchUpInside];
-	[self.noButton addTarget:self action:@selector(noClicked) forControlEvents:UIControlEventTouchUpInside];
+	[self.yesButton removeTarget:self action:@selector(yesClicked) forControlEvents:UIControlEventTouchUpInside];
+	[self.noButton removeTarget:self action:@selector(noClicked) forControlEvents:UIControlEventTouchUpInside];
 	[self.yesButton removeFromSuperview];
 	[self.noButton removeFromSuperview];
 	[self.label removeFromSuperview];
