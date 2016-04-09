@@ -132,7 +132,6 @@
 	if(numFiles == 0 && !obj){
 		[self openHelp];
 	}
-	[self.currentChildController viewDidAppear:NO];
 }
 
 - (void) setBackButtonVis{
