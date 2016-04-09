@@ -149,19 +149,6 @@
 	else if(i == 11){
 		return [[HelpTextImageController alloc] initWithText:[self getTextForIndex:i][0] withImage:[ImageUtils loadImageNamed:[DrawerFactory markedImageUrlForIndex:10]] withDes:[DrawerFactory imageDesForIndex:10] withPol:YES];
 	}
-	// using
-	else if(i==12){
-		return [[HelpTextImageController alloc] initWithText:[self getTextForIndex:i][0] withImage:[ImageUtils loadImageNamed:@"files.png"] withDes:@"Your files" withPol:NO];
-	}
-	else if(i==13){
-		return [[HelpTextImageController alloc] initWithText:[self getTextForIndex:i][0] withImage:[ImageUtils loadImageNamed:@"tpl.png"] withDes:@"Choose a template" withPol:NO];
-	}
-	else if(i==14){
-		return [[HelpTextImageController alloc] initWithText:[self getTextForIndex:i][0] withImage:[ImageUtils loadImageNamed:@"draw.png"] withDes:@"Drawing" withPol:NO];
-	}
-	else if(i==15){
-		return [[HelpTextImageController alloc] initWithText:[self getTextForIndex:i][0] withImage:[ImageUtils loadImageNamed:@"gallery.png"] withDes:@"Gallery" withPol:NO];
-	}
 	else{
 		return [[HelpJustTextController alloc] initWithText:[self getTextForIndex:i][0]];
 	}
@@ -203,18 +190,6 @@
 	}
 	else if(i==11){
 		return @"12. Types of symmetry - Glide Reflections continued";
-	}
-	else if(i==12){
-		return @"13. Using the app - Your files";
-	}
-	else if(i==13){
-		return @"14. Using the app - Templates";
-	}
-	else if(i==14){
-		return @"15. Using the app - Drawing";
-	}
-	else if(i==15){
-		return @"16. Using the app - Gallery";
 	}
 	else{
 		return @"17. Privacy policy";
