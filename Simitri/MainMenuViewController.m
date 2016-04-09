@@ -68,7 +68,6 @@
 
 - (void)viewDidLoad{
     [super viewDidLoad];
-	self.transDelegate = [[TransitionDelegate alloc] init];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setBackButtonVis) name:SYMM_NOTIF_CURRENT_FILE_CHANGE object:nil];
 	self.title = @"Home";
 	[self addBackButton];
@@ -86,7 +85,6 @@
 	UIViewController* viewController = [[HelpScreenController alloc] init];
 	CGRect r = CGRectMake(0, 0, self.view.frame.size.width + self.view.frame.origin.x, self.view.frame.size.height + self.view.frame.origin.y);
 	viewController.view.frame = r;
-	viewController.transitioningDelegate = self.transDelegate;
 	viewController.modalPresentationStyle = UIModalPresentationCustom;
 	[self.navigationController presentViewController:viewController animated:YES completion:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeHelp) name:SYMM_NOTIF_CLOSE_HELP object:nil];
