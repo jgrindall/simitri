@@ -30,7 +30,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
 	[SoundManager sharedInstance];
 	[self initApp];
-	//[self applyStyles];
+	[self applyStyles];
 	return YES;
 }
 
@@ -45,7 +45,8 @@
 
 - (void) applyStyles{
 	[Appearance applyStylesInWindow:self.window];
-	//[[UIApplication sharedApplication] setStatusBarHidden:YES];
+	[[UIApplication sharedApplication] setStatusBarHidden:YES];
+	
 }
 
 - (void) dispatchRotate:(NSString*) name to:(UIInterfaceOrientation) to{

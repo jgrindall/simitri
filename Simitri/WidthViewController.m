@@ -121,7 +121,7 @@
 
 - (void) dealloc{
 	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	[self.stepper addTarget:self action:@selector(stepClicked) forControlEvents:UIControlEventValueChanged];
+	[self.stepper removeTarget:self action:@selector(stepClicked) forControlEvents:UIControlEventValueChanged];
 	[self.stepper removeFromSuperview];
 	self.stepper = nil;
 	[self.widthLabel removeFromSuperview];

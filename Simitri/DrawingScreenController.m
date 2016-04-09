@@ -136,7 +136,7 @@
 
 - (void) addBack{
 	[self.navigationItem setHidesBackButton:YES animated:NO];
-	UIImage* buttonImage = [ImageUtils loadImageNamed:@"UINavigationBarBackIndicatorDefault.png"];
+	UIImage* buttonImage = [ImageUtils loadImageNamed:@"back.png"];
 	self.backButton = [UIButton buttonWithType:UIButtonTypeSystem];
 	self.backButton.tintColor = [Colors getColorForTheme:FlatButtonThemeDefault];
 	UIView* backContainer = [[UIView alloc] initWithFrame:CGRectMake(0,0,100,40)];
@@ -192,8 +192,9 @@
 - (void) layoutDrawing{
 	self.drawingContainer.translatesAutoresizingMaskIntoConstraints = NO;
 	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.topLayoutGuide attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
-	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
+	//NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
+	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeLeft relatedBy:NSLayoutRelationEqual toItem:self.view attribute:(NSLayoutAttributeLeft) multiplier:1 constant:0];
+	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeRight multiplier:1 constant:0];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.drawingContainer attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:-LAYOUT_TAB_HEIGHT];
 	[self.view addConstraints:@[c1, c2, c3, c4]];
 }

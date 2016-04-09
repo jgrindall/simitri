@@ -18,7 +18,7 @@ typedef enum  {
 	SYMM_FONT_SIZE_BUTTON = 17,
 	SYMM_FONT_SIZE_MED = 17,
 	SYMM_FONT_SIZE_LARGE = 22,
-	SYMM_FONT_SIZE_NAV = 31
+	SYMM_FONT_SIZE_NAV = 29
 } SymmFontSizes;
 
 + (void) applyStylesInWindow:(UIWindow*) window;

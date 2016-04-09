@@ -85,7 +85,7 @@
 
 - (void) layoutColor{
 	self.colorContainer.translatesAutoresizingMaskIntoConstraints = NO;
-	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.colorContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:0 constant:0];
+	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.colorContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0];
 	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.colorContainer attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:LAYOUT_LABEL_WIDTH];
 	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.colorContainer attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:-LAYOUT_WIDTH_WIDTH - 5];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.colorContainer attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_COLOR_VIEW_HEIGHT];
@@ -95,7 +95,7 @@
 - (void) layoutBg{
 	self.bgContainer.translatesAutoresizingMaskIntoConstraints = NO;
 	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.bgContainer attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.colorContainer attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.bgContainer attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:0 constant:LAYOUT_LABEL_WIDTH];
+	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.bgContainer attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:LAYOUT_LABEL_WIDTH];
 	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.bgContainer attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:-LAYOUT_WIDTH_WIDTH - 5];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.bgContainer attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:0 constant:LAYOUT_COLOR_VIEW_HEIGHT];
 	[self.view addConstraints:@[c1, c2, c3, c4]];

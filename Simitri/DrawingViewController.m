@@ -119,9 +119,6 @@
 	if(self.drawingView){
 		[self.drawingView memoryWarning];
 	}
-	if(self.view && !self.view.window){
-		[self cleanUpView];
-	}
 }
 
 - (void) cleanUpView{
@@ -138,7 +135,6 @@
 	self.drawingView = nil;
 	self.drawingObject = nil;
 	[self.view removeFromSuperview];
-	self.view = nil;
 }
 
 - (void) stopAnimateWithFade:(BOOL)fade{

@@ -30,9 +30,9 @@
 
 + (void)applyStylesInWindow:(UIWindow*) window{
 	[Appearance applyNavBarStyleInWindow:window];
-	//[Appearance applyToolBarStyleInWindow:window];
-	//[Appearance applyViewStyleInWindow:window];
-	//window.tintColor = [Colors getColorForTheme:FlatButtonThemeDefault];
+	[Appearance applyToolBarStyleInWindow:window];
+	[Appearance applyViewStyleInWindow:window];
+	window.tintColor = [Colors getColorForTheme:FlatButtonThemeDefault];
 }
 
 + (NSDictionary*) navTextAttributes{
@@ -45,11 +45,8 @@
 + (void) applyNavBarStyleInWindow:(UIWindow*) window{
 	UINavigationController* navigationController = (UINavigationController*) (window.rootViewController);
 	UINavigationBar* bar = navigationController.navigationBar;
-	//bar.titleTextAttributes = [Appearance navTextAttributes];
-    //[bar setBackgroundImage:[ImageUtils imageWithColor:[Colors symmGrayBgColor] cornerRadius:0] forBarMetrics:UIBarMetricsDefault & UIBarMetricsCompact];
-	//if ([bar respondsToSelector:@selector(setShadowImage:)]) {
-       //[bar setShadowImage:[ImageUtils imageWithColor:[Colors symmGrayBgColor] cornerRadius:0]];
-    //}
+	bar.titleTextAttributes = [Appearance navTextAttributes];
+    [bar setBackgroundImage:[ImageUtils imageWithColor:[Colors symmGrayBgColor] cornerRadius:0] forBarMetrics:UIBarMetricsDefault & UIBarMetricsCompact];
 }
 
 + (void) applyToolBarStyleInWindow:(UIWindow*) window{
@@ -81,23 +78,23 @@
 	[[UILabel appearance] setBackgroundColor:[UIColor clearColor]];
 	[[UITextView appearance] setBackgroundColor:[UIColor clearColor]];
 	[[UICollectionView appearance] setBackgroundColor:[UIColor clearColor]];
-	[[UIView appearanceWhenContainedIn:[UICollectionView class], nil] setBackgroundColor:[UIColor clearColor]];
-	[[UIView appearanceWhenContainedIn:[UICollectionViewController class], nil] setBackgroundColor:[UIColor clearColor]];
-	[[UIView appearanceWhenContainedIn:[DrawingViewController class], nil] setBackgroundColor:[UIColor clearColor]];
-	[[UIView appearanceWhenContainedIn:[AbstractDrawingView class], nil] setBackgroundColor:[UIColor clearColor]];
-	[[UIView appearanceWhenContainedIn:[UIPageControl class], nil] setBackgroundColor:[Colors symmGrayTextDisabledColor]];
+	[[UIView appearanceWhenContainedInInstancesOfClasses:@[[UICollectionView class]]] setBackgroundColor:[UIColor clearColor]];
+	[[UIView appearanceWhenContainedInInstancesOfClasses:@[[UICollectionViewController class]]] setBackgroundColor:[UIColor clearColor]];
+	[[UIView appearanceWhenContainedInInstancesOfClasses:@[[DrawingViewController class]]] setBackgroundColor:[UIColor clearColor]];
+	[[UIView appearanceWhenContainedInInstancesOfClasses:@[[AbstractDrawingView class]]] setBackgroundColor:[UIColor clearColor]];
+	[[UIView appearanceWhenContainedInInstancesOfClasses:@[[UIPageControl class]]] setBackgroundColor:[Colors symmGrayTextDisabledColor]];
 	[[UIImageView appearance] setBackgroundColor:[UIColor clearColor]];
 	[[UIPageControl appearance] setPageIndicatorTintColor:[Colors symmGrayTextDisabledColor]];
 	[[UIPageControl appearance] setCurrentPageIndicatorTintColor:[Colors symmGrayButtonColor]];
 	[[UIStepper appearance] setBackgroundColor:[UIColor clearColor]];
-	[[UIView appearanceWhenContainedIn:[WidthIndicator class], nil] setBackgroundColor:[UIColor clearColor]];
-	[[UIView appearanceWhenContainedIn:[WidthViewController class], nil] setBackgroundColor:[UIColor clearColor]];
-	[[UIView appearanceWhenContainedIn:[TilePopupViewController class], nil] setBackgroundColor:[UIColor clearColor]];
-	[[UIView appearanceWhenContainedIn:[UIPopoverController class], nil] setBackgroundColor:[UIColor clearColor]];
+	[[UIView appearanceWhenContainedInInstancesOfClasses:@[[WidthIndicator class]]] setBackgroundColor:[UIColor clearColor]];
+	[[UIView appearanceWhenContainedInInstancesOfClasses:@[[WidthViewController class]]] setBackgroundColor:[UIColor clearColor]];
+	[[UIView appearanceWhenContainedInInstancesOfClasses:@[[AbstractDrawingView class]]] setBackgroundColor:[UIColor clearColor]];
+	[[UIView appearanceWhenContainedInInstancesOfClasses:@[[UIPopoverController class]]] setBackgroundColor:[UIColor clearColor]];
 	NSDictionary* dic = [NSDictionary dictionaryWithObjectsAndKeys:[Appearance fontOfSize:SYMM_FONT_SIZE_BUTTON], NSFontAttributeName,  [Colors symmGrayTextColor], NSForegroundColorAttributeName, [Appearance defaultShadow], NSShadowAttributeName, nil];
 	NSDictionary* dic1 = [NSDictionary dictionaryWithObjectsAndKeys:[Appearance fontOfSize:SYMM_FONT_SIZE_BUTTON], NSFontAttributeName, [Colors getColorForTheme:FlatButtonThemeDefault], NSForegroundColorAttributeName, [Appearance defaultShadow], NSShadowAttributeName, nil];
 	[[UIBarButtonItem appearance] setTitleTextAttributes:dic forState:UIControlStateNormal];
-	[[UIBarButtonItem appearanceWhenContainedIn:[UINavigationBar class], nil] setTitleTextAttributes:dic1 forState:UIControlStateNormal];
+	[[UIBarButtonItem appearanceWhenContainedInInstancesOfClasses:@[[UINavigationBar class]]] setTitleTextAttributes:dic1 forState:UIControlStateNormal];
 }
 
 + (void) flatToolbar:(UIToolbar*) toolbar{
@@ -174,11 +171,6 @@
 	[button setTitleColor:activeColor forState:UIControlStateNormal];
 	[button setTitleColor:disClr forState:UIControlStateDisabled];
 	[button setTitleColor:highlightColor forState:UIControlStateHighlighted];
-	//NSShadow* defaultShadow = [Appearance defaultShadow];
-	//[button setTitleShadowColor:[defaultShadow shadowColor] forState:UIControlStateNormal];
-	//[button setTitleShadowColor:[defaultShadow shadowColor] forState:UIControlStateDisabled];
-	//[button setTitleShadowColor:[defaultShadow shadowColor] forState:UIControlStateHighlighted];
-	//button.titleLabel.shadowOffset = [defaultShadow shadowOffset];
 	button.backgroundColor = bg;
 	if(icon){
 		UIImage* iconImg = [ImageUtils iconWithName:icon andSize:iconSize andColor:activeColor];
