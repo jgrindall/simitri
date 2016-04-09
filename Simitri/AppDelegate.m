@@ -45,7 +45,6 @@
 
 - (void) applyStyles{
 	[Appearance applyStylesInWindow:self.window];
-	[[UIApplication sharedApplication] setStatusBarHidden:YES];
 	
 }
 

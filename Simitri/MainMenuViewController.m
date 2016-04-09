@@ -122,6 +122,10 @@
 	[super didReceiveMemoryWarning];
 }
 
+- (BOOL)prefersStatusBarHidden{
+	return YES;
+}
+
 - (void) viewDidAppear:(BOOL)animated{
 	[super viewDidAppear:animated];
 	[self setBackButtonVis];
