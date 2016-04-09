@@ -11,4 +11,6 @@
 
 @interface AContainerViewController : UIViewController
 
+- (void) onParentAppeared;
+
 @end

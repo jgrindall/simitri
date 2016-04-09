@@ -31,6 +31,10 @@
 	}
 }
 
+- (void) onParentAppeared{
+	
+}
+
 - (void)didReceiveMemoryWarning{
 	[super didReceiveMemoryWarning];
 }

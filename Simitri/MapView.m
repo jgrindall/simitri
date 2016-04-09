@@ -52,7 +52,7 @@
 	[self addSubview:self.markView];
 	[self addSubview:self.label];
 	self.imgView.contentMode = UIViewContentModeScaleAspectFit;
-	self.imgView.image = [ImageUtils loadImageNamed:@"world.png"];
+	self.imgView.image = [ImageUtils loadImageNamed:@"world3.png"];
 }
 
 

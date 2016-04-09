@@ -136,8 +136,8 @@
 }
 
 - (void) layoutButtons{
-	int len = LAYOUT_LONG_BUTTON_WIDTH + 5;
-	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.buttons attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:50];
+	int len = LAYOUT_LONG_BUTTON_WIDTH - 10;
+	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.buttons attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterY multiplier:1 constant:-12];
 	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.buttons attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant: 5];
 	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.buttons attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:len];
 	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.buttons attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1 constant:3*LAYOUT_DEFAULT_BUTTON_HEIGHT + 10];

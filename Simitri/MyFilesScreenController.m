@@ -173,8 +173,13 @@
 	[self.view addSubview:self.filesContainer];
 }
 
+- (void) onParentAppeared{
+	[self updateFileList];
+}
+
 - (void) updateFileList{
 	self.files = [[FileLoader sharedInstance] getYourFiles];
+	NSLog (@"files %i", [self.files count]);
 	[self.fileControllerDelegate loadFiles:self.files];
 }
 
@@ -223,6 +228,7 @@
 
 - (void) viewWillAppear:(BOOL)animated{
 	[super viewWillAppear:animated];
+	[self updateFileList];
 }
 
 - (void)didReceiveMemoryWarning{

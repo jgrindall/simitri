@@ -258,18 +258,6 @@
 	else if (i==11){
 		return @[@"Here is one of the glide reflections marked - translate upwards along the arrow and then reflect in the line of the arrow!\n\nEach glide reflection is  mid-way between the lines of reflection which pass through the green sections of the motif."];
 	}
-	else if (i==12){
-		return @[@"The 'Your files' screen shows all the files you have made and saved to your device.\n\nChoose from 'tile view' or 'album view'. Click on a file to open or delete it. Click on '+' to start a new file."];
-	}
-	else if (i==13){
-		return @[@"The 'Template' screen is where you choose which symmetry group to use for your new image.\n\nUse the 'Info' button, or the 'i' button to see the symmetries and click on the markers to see them animated. Click on 'Show Example' to see a real example of this symmetry group used in a piece of artwork or archaeological ornamentation."];
-	}
-	else if (i==14){
-		return @[@"The 'Drawing' screen is where you create your image. Start drawing inside one of the fundamental regions and the app will use the symmetries you chose to cover the page. Use the 'Show' button to see the symmetries. Use the tool bar at the top to change the background color, drawing color and pen width. You can save your image on your device, and share it on social media or the Simitri public gallery, as well as exporting to your camera roll."];
-	}
-	else if(i==15){
-		return @[@"The public 'Gallery' is a place to view other peoples' artwork. You can see the images they have made as well as which symmetry group they used and the country they are from."];
-	}
 	else{
 		NSString* line0 = @"This application does not collect any personal information from users apart from the country you live in. It does not collect your name, email address or any other piece of personally identifiable information.";
 		NSString* line1 = @"This application asks for your country only if you chose to submit your designs to the Gallery.";

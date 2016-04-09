@@ -134,6 +134,9 @@
 	if(numFiles == 0 && !obj){
 		[self openHelp];
 	}
+	if([self.currentChildController respondsToSelector:@selector(onParentAppeared)]){
+		[self.currentChildController performSelector:@selector(onParentAppeared)];
+	}
 }
 
 - (void) setBackButtonVis{
