@@ -169,7 +169,7 @@
 	NSArray* leftImgs = @[[ImageUtils iconWithName:@"layout 3.png" andSize:iconSize], [ImageUtils disabledIconWithName:@"layout 3.png" andSize:iconSize]];
 	NSArray* rightImgs = @[[ImageUtils iconWithName:@"layout 6.png" andSize:iconSize], [ImageUtils disabledIconWithName:@"layout 6.png" andSize:iconSize]];
 	self.fileControllerDelegate = [[FilesTabViewController alloc] initWithTitles:@[leftImgs, rightImgs]];
-	self.filesContainer = [[UIView alloc] init];
+	self.filesContainer = [[UIView alloc] initWithFrame:self.view.frame];
 	[self.view addSubview:self.filesContainer];
 }
 

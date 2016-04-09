@@ -16,8 +16,8 @@
 
 - (void) addChildInto:(UIView*) container withController:(UIViewController*) controller{
 	[container addSubview:controller.view];
-	controller.view.frame = CGRectMake(0,0,container.frame.size.width, container.frame.size.height);
 	[self addChildViewController:controller];
+	controller.view.frame = container.frame;
 	[controller viewWillAppear:NO];
 	[controller willMoveToParentViewController:self];
 	[controller didMoveToParentViewController:self];
