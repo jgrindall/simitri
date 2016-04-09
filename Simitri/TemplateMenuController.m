@@ -36,7 +36,7 @@
 
 - (void) addItems{
 	self.egButton = [self addButtonWithLabel:@"Show example" clickSelector:@selector(egClicked) withTrailingSpace:YES withLeadingSpace:YES withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT) withIcon:@"eye44.png" withTheme:FlatButtonThemeDefault];
-	self.startButton = [self addButtonWithLabel:@"Choose this template" clickSelector:@selector(startClicked) withTrailingSpace:YES withLeadingSpace:YES withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT) withIcon:@"right 3.png" withTheme:FlatButtonThemePositive];
+	self.startButton = [self addButtonWithLabel:@"Choose this template" clickSelector:@selector(startClicked) withTrailingSpace:YES withLeadingSpace:YES withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT) withIcon:@"correct7.png" withTheme:FlatButtonThemePositive];
 	self.infoButton = [self addButtonWithLabel:@"Show info" clickSelector:@selector(infoClicked) withTrailingSpace:YES withLeadingSpace:YES withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT) withIcon:@"info.png" withTheme:FlatButtonThemeDefault];
 }
 

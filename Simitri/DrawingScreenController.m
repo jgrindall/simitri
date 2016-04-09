@@ -139,11 +139,11 @@
 	UIImage* buttonImage = [ImageUtils loadImageNamed:@"backtop.png"];
 	self.backButton = [UIButton buttonWithType:UIButtonTypeSystem];
 	self.backButton.tintColor = [Colors getColorForTheme:FlatButtonThemeDefault];
-	UIView* backContainer = [[UIView alloc] initWithFrame:CGRectMake(0,0,100,40)];
+	UIView* backContainer = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 140, 40)];
 	[backContainer addSubview:self.backButton];
-	[self.backButton setTitle:@"  Back" forState:UIControlStateNormal];
+	[self.backButton setTitle:@" Back" forState:UIControlStateNormal];
 	[self.backButton setImage:buttonImage forState:UIControlStateNormal];
-	self.backButton.frame = CGRectMake(-15, 0, 80, 30);
+	self.backButton.frame = CGRectMake(-30, 0, 100, 30);
 	self.backButton.titleLabel.font = [Appearance fontOfSize:SYMM_FONT_SIZE_BUTTON];
 	[self.backButton addTarget:self action:@selector(clickBack) forControlEvents:UIControlEventTouchUpInside];
 	UIBarButtonItem* backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backContainer];

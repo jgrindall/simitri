@@ -101,18 +101,18 @@
 }
 
 - (void) addBackButton{
-	UIImage* buttonImage = [ImageUtils loadImageNamed:@"UINavigationBarFdIndicatorDefault.png"];
+	UIImage* buttonImage = [ImageUtils loadImageNamed:@"fdtop.png"];
 	self.backButton = [UIButton buttonWithType:UIButtonTypeSystem];
-	UIView* backContainer = [[UIView alloc] initWithFrame:CGRectMake(0,0,80,40)];
+	UIView* backContainer = [[UIView alloc] initWithFrame:CGRectMake(0,0,140,40)];
 	[backContainer addSubview:self.backButton];
-	[self.backButton setTitle:@"Draw " forState:UIControlStateNormal];
+	[self.backButton setTitle:@"Draw   " forState:UIControlStateNormal];
 	self.backButton.tintColor = [Colors getColorForTheme:FlatButtonThemeDefault];
 	[self.backButton setImage:buttonImage forState:UIControlStateNormal];
-	self.backButton.frame = CGRectMake(0, 0, 80, 40);
+	self.backButton.frame = CGRectMake(0, 0, 140, 40);
 	self.backButton.titleLabel.font = [Appearance fontOfSize:SYMM_FONT_SIZE_BUTTON];
 	[self.backButton addTarget:self action:@selector(clickBack) forControlEvents:UIControlEventTouchUpInside];
 	UIBarButtonItem* backButtonItem = [[UIBarButtonItem alloc] initWithCustomView:backContainer];
-	[self.backButton setImageEdgeInsets:UIEdgeInsetsMake(0, 68, 0, 0)];
+	[self.backButton setImageEdgeInsets:UIEdgeInsetsMake(0, 98, 0, 0)];
 	self.navigationItem.rightBarButtonItem = backButtonItem;
 }
 

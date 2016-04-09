@@ -37,7 +37,7 @@
 }
 
 - (void) addButtons{
-	self.yesButton = [Appearance flatButtonWithLabel:@"Yes" withIcon:@"right 3.png" withTheme:FlatButtonThemeDanger withSize:CGSizeMake(LAYOUT_DEFAULT_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT)];
+	self.yesButton = [Appearance flatButtonWithLabel:@"Yes" withIcon:@"correct7.png" withTheme:FlatButtonThemeDanger withSize:CGSizeMake(LAYOUT_DEFAULT_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT)];
 	self.noButton = [Appearance flatButtonWithLabel:@"No" withIcon:@"multiply 2.png" withTheme:FlatButtonThemePositive withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT)];
 	[self addSubview:self.yesButton];
 	[self addSubview:self.noButton];
