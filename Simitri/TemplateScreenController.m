@@ -81,7 +81,6 @@
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(swipeLeft) name:SYMM_NOTIF_EXAMPLE_SWIPE_LEFT object:nil];
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(swipeRight) name:SYMM_NOTIF_EXAMPLE_SWIPE_RIGHT object:nil];
 	self.view.backgroundColor = [Colors symmGrayBgColor];
-	self.transDelegate = [[TransitionDelegate alloc] init];
 	self.title = @"Choose a template";
 	self.infoShown = NO;
 	[self addTemplates];
@@ -178,7 +177,6 @@
 	else{
 		self.exampleController = [[ExampleViewController alloc] initWithIndex:i];
 		self.exampleController.view.frame = CGRectIntegral(CGRectMake(0, 0, self.view.frame.size.width + self.view.frame.origin.x, self.view.frame.size.height + self.view.frame.origin.y));
-		self.exampleController.transitioningDelegate = self.transDelegate;
 		self.exampleController.modalPresentationStyle = UIModalPresentationCustom;
 		[self.navigationController presentViewController:self.exampleController animated:YES completion:nil];
 		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(closeExample) name:SYMM_NOTIF_CLOSE_EXAMPLE object:nil];
