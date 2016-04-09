@@ -41,7 +41,7 @@
 
 - (void) addButtons{
 	self.fbButton = [Appearance flatButtonWithLabel:@"Share on Facebook" withIcon:@"facebook.png" withTheme:FlatButtonThemeDefault withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT)];
-	self.galleryButton = [Appearance flatButtonWithLabel:@"Submit to the gallery" withIcon:@"pic.png" withTheme:FlatButtonThemeDefault withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT)];
+	self.galleryButton = [Appearance flatButtonWithLabel:@"Submit to the gallery" withIcon:@"picture9.png" withTheme:FlatButtonThemeDefault withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT)];
 	self.cameraButton = [Appearance flatButtonWithLabel:@"Save to camera roll" withIcon:@"camera.png" withTheme:FlatButtonThemeDefault withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT)];
 	self.twitterButton = [Appearance flatButtonWithLabel:@"Share on Twitter" withIcon:@"twitter.png" withTheme:FlatButtonThemeDefault withSize:CGSizeMake(LAYOUT_LONG_BUTTON_WIDTH, LAYOUT_DEFAULT_BUTTON_HEIGHT)];
 	
