@@ -29,6 +29,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
 	[SoundManager sharedInstance];
+	application.statusBarHidden = YES;
 	[self initApp];
 	[self applyStyles];
 	return YES;
