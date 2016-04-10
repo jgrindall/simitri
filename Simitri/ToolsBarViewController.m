@@ -39,10 +39,12 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
+	[super viewWillDisappear:animated];
 	[self.view.layer removeAllAnimations];
 }
 
 - (void) viewWillAppear:(BOOL)animated{
+	[super viewWillAppear:animated];
 	[self layoutAll];
 }
 

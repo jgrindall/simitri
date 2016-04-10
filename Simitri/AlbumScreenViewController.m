@@ -69,11 +69,13 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
+	[super viewWillDisappear:animated];
 	[self showButtons:self.buttons show:NO withImmediate:YES];
 	[self showButtons:self.confirm show:NO withImmediate:YES];
 }
 
 - (void) viewDidDisappear:(BOOL)animated{
+	[super viewDidDisappear:animated];
 	[self.buttons.layer removeAllAnimations];
 	[self.confirm.layer removeAllAnimations];
 }

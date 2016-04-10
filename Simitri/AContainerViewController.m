@@ -15,7 +15,7 @@
 @implementation AContainerViewController
 
 - (void) addChildInto:(UIView*) container withController:(UIViewController*) controller{
-	CGSize s = CGSizeMake(1, 1);
+	CGSize s;
 	[container addSubview:controller.view];
 	[self addChildViewController:controller];
 	[controller viewWillAppear:NO];

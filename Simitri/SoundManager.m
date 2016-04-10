@@ -41,15 +41,15 @@
 }
 
 - (void) playClick{
-	AudioServicesPlaySystemSound(clickId);
+	//AudioServicesPlaySystemSound(clickId);
 }
 
 - (void) playSuccess{
-	AudioServicesPlaySystemSound(successId);
+	//AudioServicesPlaySystemSound(successId);
 }
 
 - (void) playError{
-	AudioServicesPlaySystemSound(errorId);
+	//AudioServicesPlaySystemSound(errorId);
 }
 
 @end

@@ -136,6 +136,7 @@
 }
 
 - (void) viewDidDisappear:(BOOL)animated{
+	[super viewDidDisappear:animated];
 	[self.infoContainer.layer removeAllAnimations];
 }
 

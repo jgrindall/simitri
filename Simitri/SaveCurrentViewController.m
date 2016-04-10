@@ -31,10 +31,12 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
+	[super viewWillDisappear:animated];
 	[self hideMenu];
 }
 
 - (void) viewDidDisappear:(BOOL)animated{
+	[super viewDidDisappear:animated];
 	[self.menu.layer removeAllAnimations];
 }
 

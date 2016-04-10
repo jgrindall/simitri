@@ -403,6 +403,7 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
+	[super viewWillDisappear:animated];
 	[FileLoader sharedInstance].tempThumbs = [self.drawingViewController getThumbs];
 	[self.toolsContainer.layer removeAllAnimations];
 	[self.infoContainer.layer removeAllAnimations];

@@ -37,10 +37,12 @@
 }
 
 - (void) viewWillDisappear:(BOOL)animated{
+	[super viewWillDisappear:animated];
 	[self hideMenu];
 }
 
 - (void) viewDidDisappear:(BOOL)animated{
+	[super viewDidDisappear:animated];
 	[self.menu.layer removeAllAnimations];
 }
 
@@ -64,6 +66,7 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated{
+	[super viewDidAppear:animated];
 	[self showMenu:self.menu show:YES withKey:@"saveMenuBounce"];
 }
 
