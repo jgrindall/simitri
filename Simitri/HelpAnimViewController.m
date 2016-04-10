@@ -82,13 +82,8 @@
 	if(!self.alphaView){
 		self.alphaView = [[HelpAnimView alloc] initWithFrame:self.view.frame];
 		[self.view addSubview:self.alphaView];
+		[self layoutAlpha];
 		[self.alphaView load:self.drawingObject];
-		NSLayoutConstraint* c5 = [NSLayoutConstraint constraintWithItem:self.alphaView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0];
-		NSLayoutConstraint* c6 = [NSLayoutConstraint constraintWithItem:self.alphaView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
-		NSLayoutConstraint* c7 = [NSLayoutConstraint constraintWithItem:self.alphaView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
-		NSLayoutConstraint* c8 = [NSLayoutConstraint constraintWithItem:self.alphaView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
-		self.alphaConstraints = @[c5, c6, c7, c8];
-		[self.view addConstraints:self.alphaConstraints];
 		[self.view sendSubviewToBack:self.alphaView];
 		self.alphaView.alpha = [ADrawingLayer getAlphaForAlphaLayer];
 	}
@@ -111,13 +106,26 @@
 }
 
 - (void) layoutAll{
+	[self layoutAnim];
+}
+
+- (void) layoutAnim{
 	self.animView.translatesAutoresizingMaskIntoConstraints = NO;
-	self.alphaView.translatesAutoresizingMaskIntoConstraints = NO;
-	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.animView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop multiplier:1 constant:0];
-	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.animView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading multiplier:1 constant:0];
-	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.animView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing multiplier:1 constant:0];
-	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.animView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom multiplier:1 constant:0];
+	NSLayoutConstraint* c1 = [NSLayoutConstraint constraintWithItem:self.animView attribute:NSLayoutAttributeTop			relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTop			multiplier:1 constant:0];
+	NSLayoutConstraint* c2 = [NSLayoutConstraint constraintWithItem:self.animView attribute:NSLayoutAttributeLeading		relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeLeading		multiplier:1 constant:0];
+	NSLayoutConstraint* c3 = [NSLayoutConstraint constraintWithItem:self.animView attribute:NSLayoutAttributeTrailing		relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeTrailing	multiplier:1 constant:0];
+	NSLayoutConstraint* c4 = [NSLayoutConstraint constraintWithItem:self.animView attribute:NSLayoutAttributeBottom			relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeBottom		multiplier:1 constant:0];
 	[self.view addConstraints:@[c1, c2, c3, c4]];
+}
+
+- (void) layoutAlpha{
+	self.alphaView.translatesAutoresizingMaskIntoConstraints = NO;
+	NSLayoutConstraint* c5 = [NSLayoutConstraint constraintWithItem:self.alphaView attribute:NSLayoutAttributeTop			relatedBy:NSLayoutRelationEqual		toItem:self.view attribute:NSLayoutAttributeTop			multiplier:1 constant:0];
+	NSLayoutConstraint* c6 = [NSLayoutConstraint constraintWithItem:self.alphaView attribute:NSLayoutAttributeLeading		relatedBy:NSLayoutRelationEqual		toItem:self.view attribute:NSLayoutAttributeLeading		multiplier:1 constant:0];
+	NSLayoutConstraint* c7 = [NSLayoutConstraint constraintWithItem:self.alphaView attribute:NSLayoutAttributeTrailing		relatedBy:NSLayoutRelationEqual		toItem:self.view attribute:NSLayoutAttributeTrailing	multiplier:1 constant:0];
+	NSLayoutConstraint* c8 = [NSLayoutConstraint constraintWithItem:self.alphaView attribute:NSLayoutAttributeBottom		relatedBy:NSLayoutRelationEqual		toItem:self.view attribute:NSLayoutAttributeBottom		multiplier:1 constant:0];
+	[self.view addConstraints:@[c5, c6, c7, c8]];
+	self.alphaConstraints = @[c5, c6, c7, c8];
 }
 
 - (void) beginAnimate{

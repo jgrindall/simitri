@@ -250,6 +250,7 @@
 
 + (NSString*) markedImageUrlForIndex:(NSInteger)i{
 	NSString* s = [DrawerFactory imageUrlForIndex:i];
+	NSLog(@"s %@", s);
 	return [s stringByReplacingOccurrencesOfString:@"." withString:@"_mark."];
 	
 }

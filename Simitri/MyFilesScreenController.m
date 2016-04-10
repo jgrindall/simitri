@@ -179,7 +179,6 @@
 
 - (void) updateFileList{
 	self.files = [[FileLoader sharedInstance] getYourFiles];
-	NSLog (@"files %i", [self.files count]);
 	[self.fileControllerDelegate loadFiles:self.files];
 }
 
